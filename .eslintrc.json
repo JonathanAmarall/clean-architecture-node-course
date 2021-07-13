@@ -1,7 +1,10 @@
 {
-    "strictNullChecks": false,
     "extends": "standard-with-typescript",
     "parserOptions": {
         "project": "./tsconfig.json"
+    },
+    "strictNullChecks": true,
+    "rules": {
+        "strictNullChecks": "off"
     }
 }

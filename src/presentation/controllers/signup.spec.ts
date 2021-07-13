@@ -24,7 +24,7 @@ describe('SingUp Controller', () => {
                 passwordConfirmation: 'any_password'
             }
         }
-       const httpResponse = sut.handle(httpRequest);
+       const httpResponse = sut.handle(httpRequest)
        expect(httpResponse.statusCode).toBe(400)
        expect(httpResponse.body).toEqual(new MissingParamError('Missing param email'))
     })

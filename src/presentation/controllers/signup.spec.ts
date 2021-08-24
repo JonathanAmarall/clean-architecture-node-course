@@ -1,3 +1,4 @@
+import { badRequest, serverError } from './../helpers/http-helper';
 import { EmailValidator } from './../protocols/email-validator';
 import { InvalidParamError } from '../errors/invalid-param-error';
 import { MissingParamError } from '../errors/missing-param-error';
@@ -86,7 +87,6 @@ describe('SingUp Controller', () => {
       },
     };
     const httpResponse = sut.handle(httpRequest);
-    expect(httpResponse.statusCode).toBe(500);
-    expect(httpResponse.body).toEqual(new ServerError());
+    expect(httpResponse.body).toEqual(serverError());
   });
 });

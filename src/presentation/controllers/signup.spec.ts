@@ -1,9 +1,7 @@
-import { badRequest, serverError } from './../helpers/http-helper';
+import { serverError } from './../helpers/http-helper';
 import { EmailValidator } from './../protocols/email-validator';
-import { InvalidParamError } from '../errors/invalid-param-error';
-import { MissingParamError } from '../errors/missing-param-error';
 import { SignUpController } from './signup';
-import { ServerError } from '../errors/server-error';
+import { InvalidParamError, MissingParamError } from '../errors';
 
 interface SutTypes {
   sut: SignUpController;
@@ -87,6 +85,6 @@ describe('SingUp Controller', () => {
       },
     };
     const httpResponse = sut.handle(httpRequest);
-    expect(httpResponse.body).toEqual(serverError());
+    expect(httpResponse).toEqual(serverError());
   });
 });
